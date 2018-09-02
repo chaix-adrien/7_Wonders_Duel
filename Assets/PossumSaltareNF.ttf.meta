@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 77f89214432a0cb4c8010609f05f1c89
+timeCreated: 1535128289
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Possum Saltare NF
+  fontNames:
+  - Possum Saltare NF
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
