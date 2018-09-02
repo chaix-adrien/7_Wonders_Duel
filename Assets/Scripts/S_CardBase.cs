@@ -50,16 +50,6 @@ public class S_CardBase : MonoBehaviour {
 		}
 	}
 
-	public void OnMouseDown() {
-		if (IsCardHidden())
-			return;		
-		if (!onBoard)
-			return;
-		if (onDiscard)
-			return;
-		OnCardSelected();
-	}
-
 	public void OnCardSelected() {
 		GameObject.FindGameObjectWithTag("Table").GetComponent<S_GameManager>().SelectCard(this);
 	}
@@ -74,14 +64,17 @@ public class S_CardBase : MonoBehaviour {
 
 	public void Select() {
 		outline.enabled = true;
+		GetComponent<Animation>().enabled = false;
+		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.05f);
 	}
 
 	public void Deselect() {
 		outline.enabled = false;
+		GetComponent<Animation>().enabled = true;
+		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.05f);
 	}
 
 	public void AddHideCard(S_CardBase toAdd) {
-
 		if (!hide[0])
 			hide[0] = toAdd;
 		else
@@ -108,7 +101,7 @@ public class S_CardBase : MonoBehaviour {
 		if (visible || IsCardHidden())
 			return;
 		visible = true;
-		GetComponent<Animation>().Play();
+		GetComponent<Animation>().Play("flip");
 	}
 
 	public void Hide() {
@@ -129,4 +122,25 @@ public class S_CardBase : MonoBehaviour {
 			return true;
 		return false;
 	}
+
+	public void OnMouseEnter() {
+		if (onBoard && visible)
+			GetComponent<Animation>().Play("Grow");		
+	}
+
+	public void OnMouseExit() {
+		if (onBoard && visible)
+			GetComponent<Animation>().Play("shrink");
+	}
+
+	public void OnMouseDown() {
+		if (IsCardHidden())
+			return;		
+		if (!onBoard)
+			return;
+		if (onDiscard)
+			return;
+		OnCardSelected();
+	}
+
 }

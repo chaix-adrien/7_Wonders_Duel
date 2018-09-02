@@ -85,6 +85,7 @@ public class S_Player : MonoBehaviour {
 
 	public void AddWonder(GameObject wonder) {
 		wonder.GetComponent<S_Wonder>().ResetScale();
+		wonder.GetComponent<S_Wonder>().forSelection = false;
 		wonder.transform.localEulerAngles = new Vector3(0, 0, 90);
 		Vector2 size = wonder.GetComponent<S_Wonder>().GetSize();
 		Vector3 pos = new Vector3();

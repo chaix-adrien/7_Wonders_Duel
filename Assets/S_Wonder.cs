@@ -5,7 +5,7 @@ using cakeslice;
 
 public class S_Wonder : MonoBehaviour {
 	public Texture Artwork;
-	private bool forSelection = true;
+	public bool forSelection = true;
 	private Vector3 defaultScale;
 	private Outline outline;
 
@@ -27,7 +27,6 @@ public class S_Wonder : MonoBehaviour {
 	}
 
 	public void ResetScale() {
-		Debug.Log(defaultScale);
 		transform.localScale = defaultScale;
 	}
 
